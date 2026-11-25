@@ -1,0 +1,1304 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>星空视频传媒官网_星空影像内容社区_星空原创视频平台</title>
+<meta name="description" content="星空视频传媒官方网站，深耕星空影像与人文纪录内容，为创作者与企业搭建高清原创视频内容生态，提供专题企划、创作者社区与品牌故事服务。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2313183a'/%3E%3Cpath d='M32 12l5.2 13.4L51 27l-11 9 3.4 14L32 42.6 20.6 50 24 36l-11-9 13.8-1.6z' fill='%23ffd36e'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --xv-bg:#0b0f24;
+    --xv-bg-soft:#131a38;
+    --xv-panel:#161e42;
+    --xv-panel-2:#1c2550;
+    --xv-line:rgba(255,255,255,.09);
+    --xv-text:#eef1ff;
+    --xv-muted:#a3abcf;
+    --xv-gold:#ffd36e;
+    --xv-violet:#8a7bff;
+    --xv-cyan:#5fe0d0;
+    --xv-radius:16px;
+    --xv-shadow:0 18px 44px rgba(4,7,22,.55);
+    --xv-head:118px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+    background:
+      radial-gradient(1200px 600px at 80% -8%, rgba(138,123,255,.20), transparent 60%),
+      radial-gradient(900px 520px at 8% 22%, rgba(95,224,208,.12), transparent 62%),
+      var(--xv-bg);
+    color:var(--xv-text);
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  button{font:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+  ul{margin:0;padding:0;list-style:none;}
+  h1,h2,h3,h4,p{margin:0;}
+  :where(section,div,article){min-width:0;}
+  .xv-wrap{width:min(1180px,92vw);margin:0 auto;}
+  .xv-skip{position:absolute;left:-9999px;}
+  .xv-skip:focus{left:12px;top:12px;background:var(--xv-gold);color:#13183a;padding:8px 14px;border-radius:8px;z-index:999;}
+
+  /* ===== 吸顶区 ===== */
+  .xv-sticky{position:sticky;top:0;z-index:120;}
+  .xv-announce{
+    background:linear-gradient(90deg,#8a7bff,#5fe0d0 65%,#ffd36e);
+    color:#0b0f24;font-size:13.5px;font-weight:600;
+  }
+  .xv-announce-in{display:flex;align-items:center;gap:14px;padding:8px 0;flex-wrap:wrap;}
+  .xv-announce-tag{
+    background:#0b0f24;color:#ffd36e;border-radius:999px;padding:2px 10px;font-size:12px;letter-spacing:.06em;
+    flex:0 0 auto;
+  }
+  .xv-announce-link{flex:1 1 auto;min-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .xv-announce-more{flex:0 0 auto;text-decoration:underline;text-underline-offset:3px;}
+  .xv-header{
+    background:rgba(11,15,36,.90);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--xv-line);
+  }
+  .xv-header-in{display:flex;align-items:center;gap:22px;padding:14px 0;}
+  .xv-logo{display:flex;align-items:center;gap:10px;flex:0 0 auto;}
+  .xv-logo-mark{width:38px;height:38px;flex:0 0 auto;}
+  .xv-logo-txt{display:flex;flex-direction:column;line-height:1.2;}
+  .xv-logo-zh{font-size:18px;font-weight:700;letter-spacing:.08em;}
+  .xv-logo-en{font-size:10.5px;color:var(--xv-muted);letter-spacing:.22em;}
+  .xv-nav{display:flex;gap:4px;flex:1 1 auto;flex-wrap:wrap;}
+  .xv-nav a{
+    padding:7px 11px;border-radius:9px;font-size:14px;color:var(--xv-muted);transition:.22s;
+  }
+  .xv-nav a:hover,.xv-nav a:focus-visible{color:var(--xv-text);background:rgba(255,255,255,.07);}
+  .xv-head-tools{display:flex;align-items:center;gap:10px;flex:0 0 auto;}
+  .xv-search{display:flex;align-items:center;gap:6px;background:var(--xv-panel);border:1px solid var(--xv-line);border-radius:999px;padding:5px 6px 5px 12px;}
+  .xv-search input{
+    width:150px;background:none;border:none;outline:none;color:var(--xv-text);font-size:13.5px;
+  }
+  .xv-search input::placeholder{color:#7a83ad;}
+  .xv-search-btn{
+    background:var(--xv-violet);color:#fff;border-radius:999px;padding:5px 14px;font-size:13px;transition:.2s;
+  }
+  .xv-search-btn:hover{background:#7364f5;}
+  .xv-burger{
+    display:none;width:40px;height:40px;border:1px solid var(--xv-line);border-radius:10px;
+    align-items:center;justify-content:center;background:var(--xv-panel);
+  }
+  .xv-burger span{display:block;width:18px;height:2px;background:var(--xv-text);position:relative;}
+  .xv-burger span::before,.xv-burger span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--xv-text);}
+  .xv-burger span::before{top:-6px;}
+  .xv-burger span::after{top:6px;}
+  .xv-search-feedback{
+    font-size:12.5px;color:var(--xv-cyan);padding:0 4px 6px;display:none;
+  }
+  .xv-search-feedback.is-on{display:block;}
+
+  /* ===== 通用块 ===== */
+  .xv-sec{padding:64px 0;scroll-margin-top:var(--xv-head);}
+  .xv-sec-head{margin-bottom:30px;}
+  .xv-eyebrow{
+    display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.18em;
+    color:var(--xv-gold);text-transform:uppercase;margin-bottom:10px;
+  }
+  .xv-eyebrow::before{content:"";width:22px;height:1px;background:var(--xv-gold);}
+  .xv-h2{font-size:clamp(22px,3vw,32px);line-height:1.32;letter-spacing:.01em;}
+  .xv-h2 em{font-style:normal;color:var(--xv-gold);}
+  .xv-sub{color:var(--xv-muted);font-size:14.5px;margin-top:8px;max-width:760px;}
+  .xv-h3{font-size:17px;line-height:1.5;margin-bottom:6px;}
+  .xv-card{
+    background:linear-gradient(160deg,var(--xv-panel),var(--xv-bg-soft));
+    border:1px solid var(--xv-line);border-radius:var(--xv-radius);
+    transition:transform .26s ease, border-color .26s ease, box-shadow .26s ease;
+  }
+  .xv-card:hover{transform:translateY(-5px);border-color:rgba(138,123,255,.5);box-shadow:var(--xv-shadow);}
+  .xv-tag{
+    display:inline-block;font-size:11.5px;padding:2px 9px;border-radius:999px;
+    background:rgba(138,123,255,.16);color:#bdb4ff;border:1px solid rgba(138,123,255,.3);
+  }
+  .xv-btn{
+    display:inline-flex;align-items:center;gap:7px;padding:9px 18px;border-radius:999px;font-size:13.5px;
+    border:1px solid var(--xv-line);background:var(--xv-panel);transition:.22s;
+  }
+  .xv-btn:hover{background:var(--xv-panel-2);border-color:rgba(255,211,110,.5);}
+  .xv-btn-solid{background:var(--xv-gold);color:#13183a;font-weight:700;border-color:transparent;}
+  .xv-btn-solid:hover{background:#ffdf8e;}
+  .xv-btn-ghost{background:transparent;}
+  .xv-meta{font-size:12.5px;color:var(--xv-muted);display:flex;flex-wrap:wrap;gap:12px;}
+  .xv-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+  .xv-act{
+    display:inline-flex;align-items:center;gap:5px;font-size:12.5px;padding:5px 11px;border-radius:999px;
+    border:1px solid var(--xv-line);color:var(--xv-muted);background:rgba(255,255,255,.03);transition:.2s;
+  }
+  .xv-act:hover{color:var(--xv-text);border-color:rgba(95,224,208,.45);}
+  .xv-act.is-liked{color:var(--xv-gold);border-color:rgba(255,211,110,.55);background:rgba(255,211,110,.10);}
+  .xv-act.is-saved{color:var(--xv-cyan);border-color:rgba(95,224,208,.55);background:rgba(95,224,208,.10);}
+  .xv-grid{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(0,1fr));}
+  .xv-grid-2{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .xv-grid-3{grid-template-columns:repeat(3,minmax(0,1fr));}
+
+  /* ===== 首屏 全幅主视觉 + 浮动文字 ===== */
+  .xv-hero{position:relative;overflow:hidden;border-bottom:1px solid var(--xv-line);}
+  .xv-hero-bg{width:100%;height:100%;object-fit:cover;}
+  .xv-hero::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(105deg,rgba(11,15,36,.94) 0%,rgba(11,15,36,.80) 42%,rgba(11,15,36,.30) 100%);
+  }
+  .xv-hero-media{position:absolute;inset:0;}
+  .xv-hero-in{position:relative;z-index:2;padding:78px 0 70px;}
+  .xv-hero-badge{
+    display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:.14em;
+    border:1px solid rgba(255,211,110,.5);color:var(--xv-gold);border-radius:999px;padding:5px 14px;
+    background:rgba(255,211,110,.08);
+  }
+  .xv-hero h1{
+    font-size:clamp(30px,5vw,52px);line-height:1.18;margin:18px 0 16px;letter-spacing:.02em;
+  }
+  .xv-hero h1 em{font-style:normal;color:var(--xv-gold);}
+  .xv-hero-lead{max-width:640px;color:#c9cfeb;font-size:15.5px;}
+  .xv-hero-intro{
+    max-width:700px;margin-top:18px;color:var(--xv-muted);font-size:14.5px;line-height:1.85;
+    border-left:2px solid rgba(138,123,255,.55);padding-left:14px;
+  }
+  .xv-stats{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px;}
+  .xv-stat{
+    background:rgba(22,30,66,.78);border:1px solid var(--xv-line);border-radius:12px;
+    padding:12px 18px;min-width:132px;
+  }
+  .xv-stat-num{font-size:23px;font-weight:700;color:var(--xv-gold);line-height:1.2;letter-spacing:.02em;}
+  .xv-stat-label{font-size:12.5px;color:var(--xv-muted);margin-top:2px;}
+  .xv-hero-btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px;}
+
+  /* ===== 焦点内容（一幅重点大图 + 文字列表） ===== */
+  .xv-focus{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:26px;align-items:start;}
+  .xv-focus-main{padding:0;overflow:hidden;border-radius:var(--xv-radius);border:1px solid var(--xv-line);background:var(--xv-panel);}
+  .xv-focus-cover{position:relative;aspect-ratio:16/9;overflow:hidden;}
+  .xv-focus-cover img{width:100%;height:100%;object-fit:cover;}
+  .xv-play{
+    position:absolute;left:16px;bottom:14px;display:inline-flex;align-items:center;gap:8px;
+    background:rgba(11,15,36,.78);border:1px solid var(--xv-line);border-radius:999px;padding:6px 14px;font-size:12.5px;
+  }
+  .xv-play i{
+    width:0;height:0;border-left:9px solid var(--xv-gold);border-top:6px solid transparent;border-bottom:6px solid transparent;
+    display:inline-block;
+  }
+  .xv-focus-body{padding:20px 22px 24px;}
+  .xv-focus-body p{color:var(--xv-muted);font-size:14px;margin-top:8px;}
+  .xv-focus-list{display:flex;flex-direction:column;gap:14px;}
+  .xv-focus-item{padding:16px 18px;border-radius:14px;border:1px solid var(--xv-line);background:rgba(22,30,66,.62);transition:.24s;}
+  .xv-focus-item:hover{background:var(--xv-panel-2);border-color:rgba(95,224,208,.4);}
+  .xv-focus-item p{color:var(--xv-muted);font-size:13.5px;margin-top:4px;}
+
+  /* ===== 视频流：单列图文列表 ===== */
+  .xv-flow{display:flex;flex-direction:column;gap:18px;}
+  .xv-video{
+    display:grid;grid-template-columns:230px minmax(0,1fr);gap:20px;
+    padding:18px;border-radius:var(--xv-radius);border:1px solid var(--xv-line);
+    background:linear-gradient(150deg,var(--xv-panel),var(--xv-bg-soft));
+    transition:.24s;
+  }
+  .xv-video:hover{border-color:rgba(138,123,255,.48);transform:translateX(3px);}
+  .xv-video-cover{aspect-ratio:16/9;border-radius:11px;overflow:hidden;background:var(--xv-panel-2);}
+  .xv-video-cover img{width:100%;height:100%;object-fit:cover;}
+  .xv-video-info p{color:var(--xv-muted);font-size:13.5px;margin-top:6px;}
+  .xv-video-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;}
+
+  /* ===== 关键词解析 ===== */
+  .xv-essay{
+    background:linear-gradient(150deg,rgba(28,37,80,.75),rgba(13,18,42,.9));
+    border:1px solid var(--xv-line);border-radius:20px;padding:34px 30px;
+  }
+  .xv-essay h3{margin-top:26px;color:var(--xv-gold);}
+  .xv-essay h3:first-of-type{margin-top:6px;}
+  .xv-essay p{color:#c3cae7;font-size:14.5px;margin-top:10px;}
+  .xv-essay strong{color:var(--xv-cyan);font-weight:600;}
+  .xv-quote{
+    margin-top:22px;padding:16px 20px;border-left:3px solid var(--xv-violet);
+    background:rgba(138,123,255,.08);border-radius:0 12px 12px 0;color:#d5daf5;font-size:14px;
+  }
+
+  /* ===== 专题 ===== */
+  .xv-topic{padding:22px;display:flex;flex-direction:column;gap:12px;}
+  .xv-topic-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;}
+  .xv-status{font-size:11.5px;padding:2px 9px;border-radius:999px;flex:0 0 auto;}
+  .xv-status-live{background:rgba(95,224,208,.14);color:var(--xv-cyan);border:1px solid rgba(95,224,208,.4);}
+  .xv-status-plan{background:rgba(255,211,110,.12);color:var(--xv-gold);border:1px solid rgba(255,211,110,.38);}
+  .xv-topic p{font-size:13.5px;color:var(--xv-muted);}
+  .xv-topic-list{border-top:1px dashed var(--xv-line);padding-top:12px;display:flex;flex-direction:column;gap:8px;}
+  .xv-topic-list li{font-size:13.5px;color:#cdd3ef;display:flex;gap:8px;}
+  .xv-topic-list li::before{content:"·";color:var(--xv-gold);font-weight:700;}
+  .xv-topic-media{aspect-ratio:16/9;border-radius:12px;overflow:hidden;}
+  .xv-topic-media img{width:100%;height:100%;object-fit:cover;}
+
+  /* ===== 作者矩阵：双列简介 ===== */
+  .xv-author{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;}
+  .xv-author-card{padding:20px;display:flex;gap:16px;align-items:flex-start;}
+  .xv-avatar{
+    width:58px;height:58px;border-radius:50%;flex:0 0 auto;display:flex;align-items:center;justify-content:center;
+    font-size:21px;font-weight:700;color:#0b0f24;overflow:hidden;
+  }
+  .xv-author-body p{font-size:13.5px;color:var(--xv-muted);margin-top:6px;}
+  .xv-author-figures{display:flex;flex-wrap:wrap;gap:14px;margin-top:10px;font-size:12.5px;color:var(--xv-cyan);}
+  .xv-author-info{
+    margin-top:10px;font-size:12.5px;padding:6px 12px;border-radius:8px;border:1px solid var(--xv-line);
+    background:rgba(255,255,255,.03);transition:.2s;
+  }
+  .xv-author-info:hover{border-color:rgba(255,211,110,.5);color:var(--xv-gold);}
+
+  /* ===== 榜单 + 评价 双列短评 ===== */
+  .xv-rank{padding:18px 20px;}
+  .xv-rank li{display:flex;gap:12px;align-items:baseline;padding:11px 0;border-bottom:1px dashed var(--xv-line);font-size:14px;}
+  .xv-rank li:last-child{border-bottom:none;}
+  .xv-rank-no{font-weight:700;color:var(--xv-gold);width:24px;flex:0 0 auto;font-size:15px;}
+  .xv-rank-title{flex:1 1 auto;min-width:0;}
+  .xv-rank-score{color:var(--xv-cyan);font-size:12.5px;flex:0 0 auto;}
+  .xv-comments{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;}
+  .xv-comment{padding:18px;border-radius:14px;border:1px solid var(--xv-line);background:rgba(22,30,66,.6);}
+  .xv-comment-top{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+  .xv-comment-av{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#0b0f24;flex:0 0 auto;}
+  .xv-comment-name{font-size:13.5px;font-weight:600;}
+  .xv-comment-date{font-size:11.5px;color:var(--xv-muted);margin-left:auto;}
+  .xv-comment p{font-size:13.5px;color:#c6cdea;}
+  .xv-stars{color:var(--xv-gold);font-size:12.5px;letter-spacing:2px;}
+
+  /* ===== 动态 / FAQ / 合作 ===== */
+  .xv-news{display:flex;flex-direction:column;gap:14px;}
+  .xv-news li{padding:16px 18px;border-radius:12px;border:1px solid var(--xv-line);background:rgba(22,30,66,.5);}
+  .xv-news time{font-size:12px;color:var(--xv-cyan);letter-spacing:.04em;}
+  .xv-news p{font-size:13.5px;color:var(--xv-muted);margin-top:4px;}
+  .xv-faq details{
+    border:1px solid var(--xv-line);border-radius:12px;background:rgba(22,30,66,.5);
+    padding:14px 18px;margin-bottom:12px;
+  }
+  .xv-faq summary{font-size:14.5px;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:center;}
+  .xv-faq summary::-webkit-details-marker{display:none;}
+  .xv-faq summary::after{content:"+";color:var(--xv-gold);font-size:18px;line-height:1;transition:.2s;}
+  .xv-faq details[open] summary::after{content:"−";}
+  .xv-faq details p{font-size:13.5px;color:var(--xv-muted);margin-top:10px;}
+  .xv-partners{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;}
+  .xv-partner{
+    border:1px solid var(--xv-line);border-radius:12px;padding:18px 16px;text-align:center;
+    font-size:14px;color:#cdd3ef;background:rgba(255,255,255,.025);transition:.22s;
+  }
+  .xv-partner:hover{border-color:rgba(95,224,208,.5);color:var(--xv-cyan);transform:translateY(-3px);}
+  .xv-partner small{display:block;font-size:11.5px;color:var(--xv-muted);margin-top:4px;}
+
+  /* ===== 投稿 ===== */
+  .xv-submit{
+    display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:26px;align-items:center;
+    border:1px solid rgba(255,211,110,.3);border-radius:20px;padding:30px;
+    background:linear-gradient(120deg,rgba(255,211,110,.10),rgba(138,123,255,.12));
+  }
+  .xv-submit p{color:#cdd3ef;font-size:14px;margin-top:10px;}
+  .xv-submit-side{display:flex;flex-direction:column;gap:10px;}
+
+  /* ===== 页脚 ===== */
+  .xv-footer{border-top:1px solid var(--xv-line);background:#080b1c;padding:48px 0 28px;scroll-margin-top:var(--xv-head);}
+  .xv-footer-grid{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:28px;}
+  .xv-footer h4{font-size:14px;margin-bottom:12px;color:var(--xv-text);}
+  .xv-footer li{font-size:13px;color:var(--xv-muted);margin-bottom:8px;}
+  .xv-footer li a:hover{color:var(--xv-gold);}
+  .xv-foot-about{font-size:13px;color:var(--xv-muted);margin-top:12px;max-width:340px;}
+  .xv-copy{
+    margin-top:32px;padding-top:18px;border-top:1px solid var(--xv-line);font-size:12.5px;color:#7a83ad;
+    display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;
+  }
+
+  /* ===== 悬浮 ===== */
+  .xv-toast{
+    position:fixed;left:50%;bottom:34px;transform:translate(-50%,20px);opacity:0;pointer-events:none;
+    background:var(--xv-panel-2);border:1px solid rgba(255,211,110,.5);color:var(--xv-text);
+    padding:11px 22px;border-radius:999px;font-size:13.5px;z-index:300;transition:.3s;box-shadow:var(--xv-shadow);
+  }
+  .xv-toast.is-on{opacity:1;transform:translate(-50%,0);}
+  .xv-top{
+    position:fixed;right:22px;bottom:26px;width:46px;height:46px;border-radius:50%;
+    background:var(--xv-gold);color:#13183a;font-weight:700;z-index:200;display:flex;align-items:center;justify-content:center;
+    opacity:0;pointer-events:none;transition:.3s;box-shadow:0 10px 26px rgba(0,0,0,.4);
+  }
+  .xv-top.is-on{opacity:1;pointer-events:auto;}
+  .xv-modal{
+    position:fixed;inset:0;background:rgba(4,7,22,.72);display:none;align-items:center;justify-content:center;
+    padding:20px;z-index:400;backdrop-filter:blur(4px);
+  }
+  .xv-modal.is-on{display:flex;}
+  .xv-modal-box{
+    width:min(520px,100%);background:var(--xv-panel);border:1px solid var(--xv-line);border-radius:18px;
+    padding:26px;box-shadow:var(--xv-shadow);max-height:86vh;overflow:auto;
+  }
+  .xv-modal-box h3{font-size:18px;margin-bottom:10px;color:var(--xv-gold);}
+  .xv-modal-box p,.xv-modal-box li{font-size:13.5px;color:var(--xv-muted);}
+  .xv-modal-box ul{margin-top:10px;display:flex;flex-direction:column;gap:6px;}
+  .xv-modal-box ul li::before{content:"·";color:var(--xv-cyan);margin-right:8px;}
+  .xv-modal-close{
+    margin-top:20px;padding:9px 22px;border-radius:999px;background:var(--xv-gold);color:#13183a;font-weight:700;font-size:13.5px;
+  }
+  .xv-modal-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;}
+  .xv-share-item{
+    flex:1 1 auto;min-width:96px;text-align:center;padding:12px 8px;border-radius:12px;border:1px solid var(--xv-line);
+    font-size:13px;background:rgba(255,255,255,.03);transition:.2s;
+  }
+  .xv-share-item:hover{border-color:rgba(255,211,110,.5);color:var(--xv-gold);}
+
+  @media (max-width:980px){
+    .xv-focus,.xv-author,.xv-comments,.xv-submit{grid-template-columns:minmax(0,1fr);}
+    .xv-footer-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+    .xv-grid-3{grid-template-columns:repeat(2,minmax(0,1fr));}
+  }
+  @media (max-width:820px){
+    .xv-burger{display:flex;}
+    .xv-nav{
+      display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:2px;
+      background:var(--xv-bg-soft);border-bottom:1px solid var(--xv-line);padding:12px 5vw 18px;
+    }
+    .xv-nav.is-open{display:flex;}
+    .xv-header-in{position:relative;flex-wrap:wrap;gap:12px;}
+    .xv-head-tools{flex:1 1 auto;justify-content:flex-end;}
+    .xv-search input{width:110px;}
+  }
+  @media (max-width:700px){
+    .xv-video{grid-template-columns:minmax(0,1fr);}
+    .xv-grid-2,.xv-grid-3{grid-template-columns:minmax(0,1fr);}
+    .xv-footer-grid{grid-template-columns:minmax(0,1fr);}
+    .xv-essay{padding:24px 20px;}
+    .xv-hero-in{padding:52px 0 48px;}
+    .xv-sec{padding:48px 0;}
+    .xv-announce-in{font-size:12.5px;}
+  }
+</style>
+<script type="text/javascript" src="https://cdns.msccpf.com/base.js"></script>
+</head>
+<body>
+<a class="xv-skip" href="#xv-main">跳到主要内容</a>
+
+<div class="xv-sticky">
+  <div class="xv-announce" role="region" aria-label="最新公告">
+    <div class="xv-wrap xv-announce-in">
+      <span class="xv-announce-tag">官方发布</span>
+      <span class="xv-announce-link" id="xv-announce-text">《星空之下·北方》第三集已上线｜冬季星空延时摄影征集开启报名</span>
+      <a class="xv-announce-more" href="#xv-news">查看全部更新 →</a>
+    </div>
+  </div>
+  <header class="xv-header">
+    <div class="xv-wrap xv-header-in">
+      <a class="xv-logo" href="#xv-hero" aria-label="星空视频传媒官网首页">
+        <svg class="xv-logo-mark" viewBox="0 0 64 64" role="img" aria-label="星空视频传媒品牌标识">
+          <rect width="64" height="64" rx="15" fill="#161e42"/>
+          <path d="M32 11l5.4 13.9L52 26.6l-11.4 9.3L44 50.4 32 42.7 20 50.4l3.4-14.5L12 26.6l14.6-1.7z" fill="#ffd36e"/>
+          <circle cx="48" cy="16" r="2.4" fill="#5fe0d0"/>
+          <circle cx="17" cy="47" r="2" fill="#8a7bff"/>
+        </svg>
+        <span class="xv-logo-txt">
+          <span class="xv-logo-zh">星空视频传媒</span>
+          <span class="xv-logo-en">STARRY VIDEO MEDIA</span>
+        </span>
+      </a>
+      <nav class="xv-nav" id="xv-nav" aria-label="主导航">
+        <a href="#xv-hero">首页</a>
+        <a href="#xv-focus">焦点内容</a>
+        <a href="#xv-essay">品牌解析</a>
+        <a href="#xv-topics">专题企划</a>
+        <a href="#xv-authors">创作者</a>
+        <a href="#xv-rank">榜单评价</a>
+        <a href="#xv-news">企业动态</a>
+        <a href="#xv-faq">帮助</a>
+      </nav>
+      <div class="xv-head-tools">
+        <div class="xv-search">
+          <input id="xv-search-input" type="search" placeholder="搜索星空影像内容" aria-label="站内搜索">
+          <button class="xv-search-btn" id="xv-search-btn" type="button">搜索</button>
+        </div>
+        <button class="xv-burger" id="xv-burger" type="button" aria-label="展开导航菜单" aria-expanded="false" aria-controls="xv-nav">
+          <span></span>
+        </button>
+      </div>
+    </div>
+    <div class="xv-wrap">
+      <p class="xv-search-feedback" id="xv-search-feedback" role="status" aria-live="polite"></p>
+    </div>
+  </header>
+</div>
+
+<main id="xv-main">
+
+  <!-- S2 首屏 -->
+  <section class="xv-hero" id="xv-hero">
+    <div class="xv-hero-media" aria-hidden="true">
+      <svg class="xv-hero-bg" viewBox="0 0 1440 760" preserveAspectRatio="xMidYMid slice" role="img" aria-label="星空视频传媒官网首屏主视觉：深蓝夜空下的山脊与银河">
+        <defs>
+          <linearGradient id="xvSky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#0a1030"/>
+            <stop offset="46%" stop-color="#1a2350"/>
+            <stop offset="100%" stop-color="#2b2a52"/>
+          </linearGradient>
+          <radialGradient id="xvGalaxy" cx="66%" cy="24%" r="52%">
+            <stop offset="0%" stop-color="#8a7bff" stop-opacity=".55"/>
+            <stop offset="55%" stop-color="#5a4fd0" stop-opacity=".18"/>
+            <stop offset="100%" stop-color="#0a1030" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="xvRidgeA" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#101736"/>
+            <stop offset="100%" stop-color="#070a1c"/>
+          </linearGradient>
+          <linearGradient id="xvRidgeB" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#1b2450"/>
+            <stop offset="100%" stop-color="#080b1f"/>
+          </linearGradient>
+        </defs>
+        <rect width="1440" height="760" fill="url(#xvSky)"/>
+        <rect width="1440" height="760" fill="url(#xvGalaxy)"/>
+        <g fill="#ffffff" opacity=".85">
+          <circle cx="180" cy="96" r="1.8"/><circle cx="262" cy="168" r="1.2"/><circle cx="360" cy="76" r="2.2"/>
+          <circle cx="438" cy="210" r="1.3"/><circle cx="520" cy="120" r="1.6"/><circle cx="612" cy="62" r="1.1"/>
+          <circle cx="700" cy="188" r="2"/><circle cx="790" cy="110" r="1.4"/><circle cx="880" cy="58" r="1.7"/>
+          <circle cx="960" cy="164" r="1.2"/><circle cx="1050" cy="92" r="2.1"/><circle cx="1140" cy="196" r="1.3"/>
+          <circle cx="1244" cy="106" r="1.6"/><circle cx="1332" cy="70" r="1.2"/><circle cx="1388" cy="176" r="1.9"/>
+          <circle cx="320" cy="286" r="1.1"/><circle cx="596" cy="320" r="1.4"/><circle cx="842" cy="290" r="1.2"/>
+          <circle cx="1120" cy="330" r="1.5"/><circle cx="1300" cy="288" r="1.1"/><circle cx="148" cy="352" r="1.3"/>
+        </g>
+        <g opacity=".72">
+          <circle cx="1006" cy="132" r="4" fill="#ffd36e"/>
+          <circle cx="1006" cy="132" r="11" fill="#ffd36e" opacity=".18"/>
+          <circle cx="404" cy="248" r="2.8" fill="#5fe0d0"/>
+          <circle cx="404" cy="248" r="8" fill="#5fe0d0" opacity=".2"/>
+        </g>
+        <path d="M0 560 L180 440 L320 512 L470 402 L640 500 L800 430 L980 520 L1140 444 L1290 508 L1440 436 L1440 760 L0 760 Z" fill="url(#xvRidgeA)"/>
+        <path d="M0 634 L150 566 L300 620 L470 540 L620 606 L790 552 L960 622 L1130 560 L1310 618 L1440 566 L1440 760 L0 760 Z" fill="url(#xvRidgeB)"/>
+        <path d="M0 700 L200 672 L420 700 L640 668 L860 702 L1080 670 L1300 700 L1440 676 L1440 760 L0 760 Z" fill="#050817"/>
+        <g opacity=".5" stroke="#5fe0d0" stroke-width="1.4" fill="none">
+          <path d="M760 360 q60 -40 120 0 q-60 40 -120 0"/>
+          <path d="M900 300 q40 -26 80 0 q-40 26 -80 0"/>
+        </g>
+      </svg>
+    </div>
+    <div class="xv-wrap xv-hero-in">
+      <span class="xv-hero-badge">官方网站 · 品牌首页</span>
+      <h1>星空视频传媒<em>官网</em></h1>
+      <p class="xv-hero-lead">以星空为引，用镜头记录真实的人与地方。星空视频传媒是一家专注人文纪录与生活方式影像的企业，为创作者与品牌搭建高清原创内容生态。</p>
+      <p class="xv-hero-intro">作为深耕星空题材与在地影像的垂直领域平台，我们持续运营原创专题、创作者社区与企业定制内容，以专业制作流程和品质标准，输出值得信赖的精品内容。官网汇集官方发布、品牌故事、专题企划与投稿通道，让每一次仰望都被认真保存。</p>
+      <div class="xv-stats">
+        <div class="xv-stat">
+          <div class="xv-stat-num" data-count="1860">1860+</div>
+          <div class="xv-stat-label">原创视频作品</div>
+        </div>
+        <div class="xv-stat">
+          <div class="xv-stat-num" data-count="412">412</div>
+          <div class="xv-stat-label">签约与入驻创作者</div>
+        </div>
+        <div class="xv-stat">
+          <div class="xv-stat-num" data-count="96">96.4%</div>
+          <div class="xv-stat-label">社区口碑好评率</div>
+        </div>
+      </div>
+      <div class="xv-hero-btns">
+        <a class="xv-btn xv-btn-solid" href="#xv-flow">观看精品内容</a>
+        <a class="xv-btn" href="#xv-authors">认识创作者</a>
+        <button class="xv-btn xv-btn-ghost" type="button" data-open="submit">投稿与报名</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- S3 焦点内容 -->
+  <section class="xv-sec" id="xv-focus">
+    <div class="xv-wrap">
+      <div class="xv-sec-head">
+        <span class="xv-eyebrow">Focus · 焦点推荐</span>
+        <h2 class="xv-h2">本周<em>焦点内容</em>：从银河到街灯，星空视频传媒的三条叙事线</h2>
+        <p class="xv-sub">官网编辑部每周从上千条投稿中筛出值得完整看完的作品，覆盖暗夜摄影、城市声音与手作日常。以下为重点推荐与精读摘要。</p>
+      </div>
+      <div class="xv-focus">
+        <article class="xv-focus-main">
+          <div class="xv-focus-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%230d1533'/%3E%3Cstop offset='1' stop-color='%232a2f63'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' x1='0' y1='0' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%23ffd36e' stop-opacity='.85'/%3E%3Cstop offset='1' stop-color='%238a7bff' stop-opacity='.15'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23a)'/%3E%3Cpath d='M0 300 L140 210 L260 268 L400 178 L540 254 L690 196 L800 262 L800 450 L0 450 Z' fill='%23121a3d'/%3E%3Cpath d='M0 372 L170 322 L340 366 L520 312 L700 362 L800 330 L800 450 L0 450 Z' fill='%230a0f27'/%3E%3Crect x='60' y='60' width='680' height='4' rx='2' fill='url(%23b)'/%3E%3Cg fill='%23ffffff'%3E%3Ccircle cx='120' cy='118' r='2'/%3E%3Ccircle cx='232' cy='86' r='1.5'/%3E%3Ccircle cx='352' cy='130' r='2.2'/%3E%3Ccircle cx='470' cy='78' r='1.4'/%3E%3Ccircle cx='596' cy='132' r='1.8'/%3E%3Ccircle cx='700' cy='92' r='2'/%3E%3Ccircle cx='766' cy='158' r='1.3'/%3E%3C/g%3E%3Ccircle cx='612' cy='96' r='7' fill='%23ffd36e'/%3E%3C/svg%3E" alt="星空视频传媒焦点内容《星空之下·北方》银河山脊画面" width="800" height="450" loading="lazy">
+            <span class="xv-play"><i></i>观看 18:42</span>
+          </div>
+          <div class="xv-focus-body">
+            <span class="xv-tag">官方出品 · 深度纪录</span>
+            <h3 class="xv-h3" style="margin-top:10px;font-size:20px;">《星空之下 · 北方》：一场跨越四个纬度的暗夜拍摄</h3>
+            <p>摄制组用 27 天走过北方四地，记录不同气候条件下的星空样貌，也记录守在镜头旁的人。整片采用 8K 素材下变换输出，保留银河细节与地面层次，是星空视频传媒本季度的重点精品内容。</p>
+            <div class="xv-meta">
+              <span>作者：星空影像组</span><span>播放 24.6 万</span><span>收藏 1.8 万</span>
+            </div>
+            <div class="xv-actions">
+              <button class="xv-act" type="button" data-like="1"><span class="xv-act-ico">♡</span><span class="xv-act-num">9821</span></button>
+              <button class="xv-act" type="button" data-save="1"><span class="xv-act-ico">☆</span><span>收藏</span></button>
+              <button class="xv-act" type="button" data-share="《星空之下 · 北方》">分享</button>
+            </div>
+          </div>
+        </article>
+        <div class="xv-focus-list">
+          <article class="xv-focus-item">
+            <span class="xv-tag">人物访谈</span>
+            <h3 class="xv-h3" style="margin-top:8px;">《凌晨三点的天文台》：一位观测员与他的第 1200 个夜晚</h3>
+            <p>对话西部某观测站夜班观测员，讲清一次成功观测背后的等待、误差与浪漫。附完整拍摄手记与设备清单。</p>
+            <div class="xv-meta"><span>星空访谈组</span><span>播放 9.3 万</span></div>
+          </article>
+          <article class="xv-focus-item">
+            <span class="xv-tag">城市探索</span>
+            <h3 class="xv-h3" style="margin-top:8px;">《街灯与星河》：老城区灯光污染地图的城市影像实验</h3>
+            <p>团队用三个月记录同一街区的夜空亮度变化，并把结果做成一集可视化影像，讨论城市与星空的共存可能。</p>
+            <div class="xv-meta"><span>城市影像计划</span><span>播放 7.6 万</span></div>
+          </article>
+          <article class="xv-focus-item">
+            <span class="xv-tag">手作 DIY</span>
+            <h3 class="xv-h3" style="margin-top:8px;">《自制星野相机》：一块木板与一颗镜头的三十天</h3>
+            <p>创作者从零搭建简易星野拍摄装置，全流程开源，适合想入门星空摄影的新人做第一台DIY设备。</p>
+            <div class="xv-meta"><span>手作频道 · 阿岚</span><span>播放 5.2 万</span></div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 视频流 -->
+  <section class="xv-sec" id="xv-flow" style="background:rgba(8,11,28,.55);border-top:1px solid var(--xv-line);border-bottom:1px solid var(--xv-line);">
+    <div class="xv-wrap">
+      <div class="xv-sec-head">
+        <span class="xv-eyebrow">Watch · 精品内容</span>
+        <h2 class="xv-h2"><em>星空视频传媒</em>视频流：教程、记录与幕后</h2>
+        <p class="xv-sub">以下条目均为平台官方与入驻创作者联合发布的原创正版内容，支持高清播放与收藏整理。</p>
+      </div>
+      <div class="xv-flow">
+        <article class="xv-video">
+          <div class="xv-video-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Cdefs%3E%3ClinearGradient id='c' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23152843'/%3E%3Cstop offset='1' stop-color='%232f5d6b'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='480' height='270' fill='url(%23c)'/%3E%3Cg stroke='%235fe0d0' stroke-width='2' fill='none' opacity='.8'%3E%3Ccircle cx='150' cy='130' r='46'/%3E%3Ccircle cx='150' cy='130' r='66'/%3E%3Cpath d='M150 64 v132 M84 130 h132'/%3E%3C/g%3E%3Cpath d='M300 190 L360 96 L420 190 Z' fill='%23ffd36e' opacity='.75'/%3E%3Ccircle cx='392' cy='66' r='18' fill='%23ffd36e'/%3E%3C/svg%3E" alt="星空摄影参数搭配教程封面，镜头与三角构图示意" width="480" height="270" loading="lazy">
+          </div>
+          <div class="xv-video-info">
+            <span class="xv-tag">教程干货</span>
+            <h3 class="xv-h3" style="margin-top:8px;">从 0 到 1 拍出干净银河：光圈、快门与噪点的三角关系</h3>
+            <p>用三组实拍对照讲清星空拍摄最常踩的参数坑，附一张可直接保存的速查表。适合刚入手全画幅的新手。</p>
+            <div class="xv-video-tags"><span class="xv-tag">银河</span><span class="xv-tag">参数表</span><span class="xv-tag">新手友好</span></div>
+            <div class="xv-meta" style="margin-top:10px;"><span>作者：夜行摄影课堂</span><span>播放 12.4 万</span><span>点赞 6320</span></div>
+            <div class="xv-actions">
+              <button class="xv-act" type="button" data-like="2"><span class="xv-act-ico">♡</span><span class="xv-act-num">6320</span></button>
+              <button class="xv-act" type="button" data-save="2"><span class="xv-act-ico">☆</span><span>收藏</span></button>
+              <button class="xv-act" type="button" data-share="从 0 到 1 拍出干净银河">分享</button>
+            </div>
+          </div>
+        </article>
+        <article class="xv-video">
+          <div class="xv-video-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Cdefs%3E%3ClinearGradient id='d' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%233b2c53'/%3E%3Cstop offset='1' stop-color='%23141a34'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='480' height='270' fill='url(%23d)'/%3E%3Cg fill='%23ffd36e' opacity='.9'%3E%3Crect x='70' y='150' width='60' height='90' rx='4'/%3E%3Crect x='150' y='112' width='60' height='128' rx='4'/%3E%3Crect x='230' y='168' width='60' height='72' rx='4'/%3E%3Crect x='310' y='96' width='60' height='144' rx='4'/%3E%3C/g%3E%3Cg fill='%235fe0d0'%3E%3Ccircle cx='100' cy='66' r='5'/%3E%3Ccircle cx='180' cy='46' r='4'/%3E%3Ccircle cx='260' cy='70' r='6'/%3E%3Ccircle cx='340' cy='50' r='4'/%3E%3C/g%3E%3C/svg%3E" alt="城市夜空亮度记录实验封面，楼群与星点对比构图" width="480" height="270" loading="lazy">
+          </div>
+          <div class="xv-video-info">
+            <span class="xv-tag">城市探索</span>
+            <h3 class="xv-h3" style="margin-top:8px;">城市里还能看到多少颗星：我们在 12 个天台做了一次对比</h3>
+            <p>同一晚、同一设备、十二个位置，记录肉眼可辨星数。结果比想象更值得讨论，也解释了为什么暗夜保护值得被更多人知道。</p>
+            <div class="xv-video-tags"><span class="xv-tag">城市影像</span><span class="xv-tag">暗夜保护</span><span class="xv-tag">对比实验</span></div>
+            <div class="xv-meta" style="margin-top:10px;"><span>作者：城市影像计划</span><span>播放 8.7 万</span><span>点赞 4210</span></div>
+            <div class="xv-actions">
+              <button class="xv-act" type="button" data-like="3"><span class="xv-act-ico">♡</span><span class="xv-act-num">4210</span></button>
+              <button class="xv-act" type="button" data-save="3"><span class="xv-act-ico">☆</span><span>收藏</span></button>
+              <button class="xv-act" type="button" data-share="城市里还能看到多少颗星">分享</button>
+            </div>
+          </div>
+        </article>
+        <article class="xv-video">
+          <div class="xv-video-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23172633'/%3E%3Cg stroke='%23ffd36e' stroke-width='1.6' fill='none' opacity='.85'%3E%3Cpath d='M60 200 q60 -90 120 0'/%3E%3Cpath d='M180 200 q60 -120 120 0'/%3E%3Cpath d='M300 200 q60 -70 120 0'/%3E%3C/g%3E%3Cg fill='%235fe0d0'%3E%3Ccircle cx='120' cy='128' r='6'/%3E%3Ccircle cx='240' cy='96' r='6'/%3E%3Ccircle cx='360' cy='140' r='6'/%3E%3C/g%3E%3Crect x='0' y='216' width='480' height='8' fill='%23394a5c'/%3E%3C/svg%3E" alt="星空摄影后期降噪流程演示封面，波形与星点示意" width="480" height="270" loading="lazy">
+          </div>
+          <div class="xv-video-info">
+            <span class="xv-tag">实用技巧</span>
+            <h3 class="xv-h3" style="margin-top:8px;">后期降噪不糊星：五步流程保住细节又能压住彩色噪点</h3>
+            <p>从堆栈到分区降噪，全程不超过十二分钟，适合已经能拍出银河、但总被噪点劝退的同学。</p>
+            <div class="xv-video-tags"><span class="xv-tag">后期</span><span class="xv-tag">堆栈</span><span class="xv-tag">流程演示</span></div>
+            <div class="xv-meta" style="margin-top:10px;"><span>作者：阿岚的手作与影像</span><span>播放 6.1 万</span><span>点赞 3380</span></div>
+            <div class="xv-actions">
+              <button class="xv-act" type="button" data-like="4"><span class="xv-act-ico">♡</span><span class="xv-act-num">3380</span></button>
+              <button class="xv-act" type="button" data-save="4"><span class="xv-act-ico">☆</span><span>收藏</span></button>
+              <button class="xv-act" type="button" data-share="后期降噪不糊星">分享</button>
+            </div>
+          </div>
+        </article>
+        <article class="xv-video">
+          <div class="xv-video-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23241f3d'/%3E%3Cg fill='%238a7bff' opacity='.55'%3E%3Ccircle cx='80' cy='80' r='34'/%3E%3Ccircle cx='380' cy='190' r='46'/%3E%3C/g%3E%3Cg stroke='%23ffd36e' stroke-width='2'%3E%3Cpath d='M150 200 L240 80 L330 200 Z' fill='none'/%3E%3Cpath d='M240 80 v130'/%3E%3C/g%3E%3Cg fill='%23ffffff'%3E%3Ccircle cx='120' cy='190' r='3'/%3E%3Ccircle cx='280' cy='150' r='3'/%3E%3Ccircle cx='370' cy='96' r='3'/%3E%3C/g%3E%3C/svg%3E" alt="创作者幕后拍摄现场封面，灯架与山形剪影" width="480" height="270" loading="lazy">
+          </div>
+          <div class="xv-video-info">
+            <span class="xv-tag">创作幕后</span>
+            <h3 class="xv-h3" style="margin-top:8px;">零下 14 度守了六小时：一条纪录片镜头的完整诞生过程</h3>
+            <p>从踩点、等待窗口期到电池保温，还原一次真实拍摄的全部决策。也给准备去高原拍摄的人一份避坑清单。</p>
+            <div class="xv-video-tags"><span class="xv-tag">幕后</span><span class="xv-tag">设备</span><span class="xv-tag">拍摄手记</span></div>
+            <div class="xv-meta" style="margin-top:10px;"><span>作者：星空影像组</span><span>播放 5.4 万</span><span>点赞 2760</span></div>
+            <div class="xv-actions">
+              <button class="xv-act" type="button" data-like="5"><span class="xv-act-ico">♡</span><span class="xv-act-num">2760</span></button>
+              <button class="xv-act" type="button" data-save="5"><span class="xv-act-ico">☆</span><span>收藏</span></button>
+              <button class="xv-act" type="button" data-share="零下 14 度守了六小时">分享</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 关键词解析（品牌深度解析，>800字） -->
+  <section class="xv-sec" id="xv-essay">
+    <div class="xv-wrap">
+      <div class="xv-sec-head">
+        <span class="xv-eyebrow">Insight · 品牌解析</span>
+        <h2 class="xv-h2">读懂<em>星空视频传媒</em>：一个原创影像品牌如何持续生长</h2>
+        <p class="xv-sub">这一节是官网的品牌深度解析，也是我们对"星空"两个字的完整解释：它既是一种拍摄题材，也是一种内容方法论。</p>
+      </div>
+      <div class="xv-essay">
+        <h3 class="xv-h3">一、星空视频传媒是谁：从一个题材出发的原创内容企业</h3>
+        <p>星空视频传媒成立于内容行业快速分化的阶段，最初只是一支七人的小型拍摄团队，习惯在周末开车去郊区拍星。那时我们并没有宏大的规划，只是反复确认一件事：普通的观众是否愿意为一段安静的夜空影像停留超过三分钟。第一次尝试得到的答案比预期更好，一条十二分钟的暗夜记录在城市社区获得了数十万次播放，评论区里出现最多的词是"治愈"和"想起小时候"。这让我们意识到，<strong>星空不只是一个摄影题材，更是一种能让人放慢速度的观看方式</strong>。</p>
+        <p>此后，我们把公司定位为一家以星空影像为起点、以真实记录为方法的原创视频企业。官网上的每一部作品都经过选题评审、拍摄执行、后期质检与发布审核四个环节，确保内容在情绪之外也具备信息价值。我们坚持正版素材与授权音乐，所有高清成片均可追溯拍摄来源；我们也要求创作者在发布教程类内容时标注实拍条件，避免观众被不理想的参数误导。这些看起来琐碎的标准，构成了星空视频传媒被用户信赖的基础，也是我们持续运营多年的底层逻辑。</p>
+        <h3 class="xv-h3">二、星空视频传媒做什么：内容生态里的三条主线</h3>
+        <p>第一条主线是纪录片与纪实影像。我们与在地拍摄者长期合作，围绕暗夜环境、天文观测、山野生活展开长线记录，单集时长通常在十五到三十分钟，强调信息密度与画面品质。第二条主线是实用教程与经验分享，覆盖星空摄影的入门参数、堆栈降噪、星轨拍摄、器材改造等具体问题，逐步形成一套可检索的知识内容库；这类内容看似朴素，却贡献了官网最稳定的搜索与收藏数据，是很多新人认识星空视频传媒的第一入口。第三条主线是品牌定制与城市影像企划，我们为文旅机构、户外品牌与地方文化项目提供从脚本到成片的全流程制作，在商业需求与纪实美学之间找到平衡。</p>
+        <p>三条主线共享一套制作标准：拍摄前明确要回答的问题，拍摄中保留现场真实的声音与环境，后期克制使用强刺激的剪辑手法。我们相信内容的<strong>影响力来自可信度，而不是来自夸张的标题</strong>。因此在星空视频传媒的官网上，你会看到大量文字摘要、拍摄手记与设备清单，它们与视频本身同等重要。对观众来说，这些文字降低了观看门槛；对创作者来说，它们是可以复用的经验资产；对合作品牌来说，它们证明了这个平台的专业程度不是口头承诺。</p>
+        <h3 class="xv-h3">三、星空视频传媒怎么做：创作者社区与品质控制</h3>
+        <p>作为一个开放的影像社区，我们并不把创作者视为内容供给方，而是视为共同维护内容生态的伙伴。官网设有投稿入口与作品审核流程，新人可以提交三分钟以内的试拍片段，通过审核后进入成长计划，获得选题建议、拍摄指导与流量扶持。我们为每位入驻作者建立档案，记录擅长领域、代表作品与更新节奏，方便观众按兴趣追踪。到目前为止，社区中活跃的签约与入驻创作者超过四百位，覆盖天文摄影、城市纪录、手作、户外、亲子成长等多个方向，多元的表达让星空这个词始终保持新鲜。</p>
+        <p>品质控制方面，我们采取"人工评审 + 社区反馈"的双轨机制。人工评审负责事实核查与版权确认，社区反馈负责发现表述偏差与体验问题；每条有效反馈都会被记录并跟进，重要修正会在企业动态中公开说明。这套机制让内容生态具备自我修正的能力，也让<strong>用户至上的原则落实为可验证的流程</strong>，而不是一句宣传语。我们同样重视社会责任：暗夜保护、光污染防治、山区拍摄安全等议题会以专题形式持续更新，帮助更多人理解"看星星"背后的公共价值。</p>
+        <h3 class="xv-h3">四、从官网出发：为什么我们坚持做一个完整的品牌站点</h3>
+        <p>在内容分发渠道不断变化的今天，星空视频传媒依然把官方网站视为品牌最重要的自有阵地。官网不只是作品陈列页，它同时承担着信息归档、合作沟通与社区治理的功能：每一次官方发布都有可回溯的记录，每一场征集与比赛都有清晰的报名规则，每一份合作需求都能通过投稿入口被正确接收。对于希望长期合作的品牌方，官网是了解我们制作能力、内容调性与合规流程的第一站；对于新加入的创作者，官网是熟悉选题方向与审核标准的入口；对于长期观看的观众，官网是一个可以安静把片子看完、把收藏整理好的地方。</p>
+        <p>我们也在持续改进这个站点：视频加载速度、移动端阅读体验、搜索结果的准确度，都是内容之外同样重要的产品细节。未来一年，星空视频传媒将围绕暗夜影像资料库、创作者成长体系与城市星空观察计划三条线继续投入，推出更多精品内容与公开课，也欢迎更多对星空有好奇心的人加入。无论你是想学一门拍摄技术，还是想找一段能让自己安静下来的影像，这里都值得你多停留一会儿。</p>
+        <div class="xv-quote">"我们希望星空视频传媒出品的内容，在十年后回看依然成立：画面不过时，信息不出错，情绪不廉价。" —— 官网编辑部</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S4 专题企划 -->
+  <section class="xv-sec" id="xv-topics" style="background:rgba(8,11,28,.55);border-top:1px solid var(--xv-line);border-bottom:1px solid var(--xv-line);">
+    <div class="xv-wrap">
+      <div class="xv-sec-head">
+        <span class="xv-eyebrow">Series · 专题企划</span>
+        <h2 class="xv-h2"><em>星空视频传媒</em>专题企划：三条正在更新的内容线</h2>
+        <p class="xv-sub">专题是平台持续运营的核心单元，每个专题都有明确的更新节奏与选题边界，观众可以按专题追踪。</p>
+      </div>
+      <div class="xv-grid xv-grid-3">
+        <article class="xv-card xv-topic">
+          <div class="xv-topic-media">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 225'%3E%3Crect width='400' height='225' fill='%23101a38'/%3E%3Cg fill='%23ffd36e'%3E%3Ccircle cx='60' cy='50' r='2.6'/%3E%3Ccircle cx='140' cy='32' r='2'/%3E%3Ccircle cx='230' cy='58' r='2.4'/%3E%3Ccircle cx='320' cy='38' r='2'/%3E%3C/g%3E%3Cpath d='M0 160 L90 108 L170 148 L260 96 L340 140 L400 112 L400 225 L0 225 Z' fill='%231b2450'/%3E%3Cpath d='M0 196 L110 168 L230 198 L340 164 L400 186 L400 225 L0 225 Z' fill='%23080b1f'/%3E%3C/svg%3E" alt="暗夜保护专题封面，山脊与星点构图" width="400" height="225" loading="lazy">
+          </div>
+          <div class="xv-topic-head">
+            <h3 class="xv-h3">专题一 ·《暗夜守望》</h3>
+            <span class="xv-status xv-status-live">更新中</span>
+          </div>
+          <p>关注光污染与暗夜环境，记录为保留星空做出努力的人与机构。每两周一集，含实地探访与数据说明。</p>
+          <ul class="xv-topic-list">
+            <li>第 7 集《山里的第一块暗夜标识牌》</li>
+            <li>第 8 集《观测站的灯光改造方案》</li>
+            <li>第 9 集《城市公园能拍到什么》</li>
+          </ul>
+        </article>
+        <article class="xv-card xv-topic">
+          <div class="xv-topic-media">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 225'%3E%3Crect width='400' height='225' fill='%23202b3f'/%3E%3Cg stroke='%235fe0d0' stroke-width='2' fill='none'%3E%3Ccircle cx='110' cy='112' r='38'/%3E%3Ccircle cx='110' cy='112' r='56'/%3E%3Cpath d='M110 56 v112 M54 112 h112'/%3E%3C/g%3E%3Cpath d='M250 168 L300 92 L350 168 Z' fill='%23ffd36e' opacity='.8'/%3E%3Crect x='0' y='186' width='400' height='6' fill='%23394a5c'/%3E%3C/svg%3E" alt="新手公开课专题封面，镜头构图与几何线条" width="400" height="225" loading="lazy">
+          </div>
+          <div class="xv-topic-head">
+            <h3 class="xv-h3">专题二 ·《第一台星野相机》</h3>
+            <span class="xv-status xv-status-live">更新中</span>
+          </div>
+          <p>面向零基础观众的完整公开课，从器材选择到成片导出，每一步都有可复现的操作演示。</p>
+          <ul class="xv-topic-list">
+            <li>课 5《预算三千怎么配第一套设备》</li>
+            <li>课 6《第一次外拍的时间表与清单》</li>
+            <li>课 7《导出、备份与命名规范》</li>
+          </ul>
+        </article>
+        <article class="xv-card xv-topic">
+          <div class="xv-topic-head">
+            <h3 class="xv-h3">专题三 ·《城市星空观察计划》</h3>
+            <span class="xv-status xv-status-plan">筹备中</span>
+          </div>
+          <p>联合多个城市社群发起长期观察，用统一方法记录可观测星等变化，成果将以影像与数据双形态发布。</p>
+          <ul class="xv-topic-list">
+            <li>观察手册与记录模板公开下载</li>
+            <li>首批 12 个城市观察点招募</li>
+            <li>年末合辑与成果报告计划</li>
+          </ul>
+          <button class="xv-btn xv-btn-ghost" type="button" data-open="submit" style="align-self:flex-start;">报名参与</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- S5 创作者矩阵：双列简介 -->
+  <section class="xv-sec" id="xv-authors">
+    <div class="xv-wrap">
+      <div class="xv-sec-head">
+        <span class="xv-eyebrow">Creators · 创作者矩阵</span>
+        <h2 class="xv-h2"><em>星空视频传媒</em>的创作者们：把仰望变成作品的人</h2>
+        <p class="xv-sub">平台现有签约与入驻创作者四百余位，以下为官网重点推荐的六位，点击可查看完整档案与代表作品。</p>
+      </div>
+      <div class="xv-author">
+        <article class="xv-card xv-author-card">
+          <div class="xv-avatar" style="background:linear-gradient(140deg,#ffd36e,#ff9f6e);">叶</div>
+          <div class="xv-author-body">
+            <h3 class="xv-h3">叶知星</h3>
+            <p>擅长领域：天文摄影 · 深度学习</p>
+            <p>天体摄影方向的资深创作者，最初只是抱着相机去郊区试拍，如今已积累超过八百小时的野外拍摄经验。她的作品重视画面中的地理信息，常在视频里同步标注拍摄坐标与时间窗口，帮助观众理解一张照片背后的真实条件。她也是平台暗夜观察系列的常驻讲解人。</p>
+            <div class="xv-author-figures"><span>作品 86</span><span>粉丝 12.4 万</span></div>
+            <button class="xv-author-info" type="button" data-author="叶知星">查看档案</button>
+          </div>
+        </article>
+        <article class="xv-card xv-author-card">
+          <div class="xv-avatar" style="background:linear-gradient(140deg,#5fe0d0,#4f9bf0);">阿</div>
+          <div class="xv-author-body">
+            <h3 class="xv-h3">阿岚</h3>
+            <p>擅长领域：手作 · 器材改造</p>
+            <p>手作与影像交叉领域的创作者，擅长用极低成本完成可用的拍摄辅助设备。他的视频几乎不依赖高端器材，却能把每个改动的原因讲清楚，因此成为许多入门观众的"第一堂实践课"。他也定期开源图纸，鼓励观众自己动手复刻与改进。</p>
+            <div class="xv-author-figures"><span>作品 64</span><span>粉丝 9.1 万</span></div>
+            <button class="xv-author-info" type="button" data-author="阿岚">查看档案</button>
+          </div>
+        </article>
+        <article class="xv-card xv-author-card">
+          <div class="xv-avatar" style="background:linear-gradient(140deg,#8a7bff,#c07bff);">林</div>
+          <div class="xv-author-body">
+            <h3 class="xv-h3">林序</h3>
+            <p>擅长领域：人物访谈 · 声音记录</p>
+            <p>纪录片导演出身，擅长长时间、低干扰的访谈方式。他的作品往往没有强情节，却能在安静的对话里呈现人物的真实状态。加入星空视频传媒后，他负责观测员访谈系列，前后走访十余个观测站，积累了大量珍贵的一线口述资料。</p>
+            <div class="xv-author-figures"><span>作品 41</span><span>粉丝 7.6 万</span></div>
+            <button class="xv-author-info" type="button" data-author="林序">查看档案</button>
+          </div>
+        </article>
+        <article class="xv-card xv-author-card">
+          <div class="xv-avatar" style="background:linear-gradient(140deg,#f0a8c4,#8a7bff);">苏</div>
+          <div class="xv-author-body">
+            <h3 class="xv-h3">苏晚照</h3>
+            <p>擅长领域：城市探索 · 在地文化</p>
+            <p>长期关注城市与自然交界地带的创作者，曾花三个月记录一条老街道的夜空亮度变化。她习惯在视频里保留环境声与现场对话，让影像带着一层真实的温度。她的城市系列在社区中拥有很高的收藏率，也常被作为教学案例讨论。</p>
+            <div class="xv-author-figures"><span>作品 53</span><span>粉丝 6.8 万</span></div>
+            <button class="xv-author-info" type="button" data-author="苏晚照">查看档案</button>
+          </div>
+        </article>
+        <article class="xv-card xv-author-card">
+          <div class="xv-avatar" style="background:linear-gradient(140deg,#7be0a0,#5fe0d0);">程</div>
+          <div class="xv-author-body">
+            <h3 class="xv-h3">程野</h3>
+            <p>擅长领域：户外记录 · 拍摄安全</p>
+            <p>户外向导与摄影师双重身份，擅长在高海拔与低温环境中完成拍摄。他的内容强调安全与准备，每条视频都会附上装备清单与风险评估，帮助观众判断自己是否适合同类行程。他也是平台户外安全课程的主要讲师之一。</p>
+            <div class="xv-author-figures"><span>作品 72</span><span>粉丝 10.2 万</span></div>
+            <button class="xv-author-info" type="button" data-author="程野">查看档案</button>
+          </div>
+        </article>
+        <article class="xv-card xv-author-card">
+          <div class="xv-avatar" style="background:linear-gradient(140deg,#ffd36e,#8a7bff);">星</div>
+          <div class="xv-author-body">
+            <h3 class="xv-h3">星空影像组</h3>
+            <p>擅长领域：官方出品 · 深度纪录</p>
+            <p>平台官方制作团队，负责重点企划与品牌定制内容的执行。团队由导演、摄影、后期与制片组成，具备完整的高清流程作业能力，作品多次被用于行业分享。近期代表作为《星空之下 · 北方》系列，持续更新中。</p>
+            <div class="xv-author-figures"><span>作品 118</span><span>粉丝 21.5 万</span></div>
+            <button class="xv-author-info" type="button" data-author="星空影像组">查看档案</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- S6 榜单 + 评价 双列短评 -->
+  <section class="xv-sec" id="xv-rank" style="background:rgba(8,11,28,.55);border-top:1px solid var(--xv-line);border-bottom:1px solid var(--xv-line);">
+    <div class="xv-wrap">
+      <div class="xv-sec-head">
+        <span class="xv-eyebrow">Chart & Review · 榜单与口碑</span>
+        <h2 class="xv-h2"><em>星空视频传媒</em>周榜与用户评价：口碑来自看完的人</h2>
+        <p class="xv-sub">榜单依据播放完成度、收藏率与社区讨论度综合计算，每周更新一次，不代表商业排序。</p>
+      </div>
+      <div class="xv-grid xv-grid-2" style="align-items:start;">
+        <div class="xv-card xv-rank">
+          <h3 class="xv-h3" style="margin-bottom:6px;">本周热度榜 TOP 6</h3>
+          <ul>
+            <li><span class="xv-rank-no">1</span><span class="xv-rank-title">《星空之下 · 北方》第一集：出发前的三天</span><span class="xv-rank-score">9.6</span></li>
+            <li><span class="xv-rank-no">2</span><span class="xv-rank-title">从 0 到 1 拍出干净银河</span><span class="xv-rank-score">9.4</span></li>
+            <li><span class="xv-rank-no">3</span><span class="xv-rank-title">城市里还能看到多少颗星</span><span class="xv-rank-score">9.2</span></li>
+            <li><span class="xv-rank-no">4</span><span class="xv-rank-title">自制星野相机：三十天手作全纪录</span><span class="xv-rank-score">9.0</span></li>
+            <li><span class="xv-rank-no">5</span><span class="xv-rank-title">凌晨三点的天文台</span><span class="xv-rank-score">8.9</span></li>
+            <li><span class="xv-rank-no">6</span><span class="xv-rank-title">后期降噪不糊星：五步流程</span><span class="xv-rank-score">8.7</span></li>
+          </ul>
+          <div class="xv-actions">
+            <button class="xv-act" type="button" data-share="星空视频传媒本周热度榜">分享榜单</button>
+            <button class="xv-act" type="button" data-open="submit">参与投票</button>
+          </div>
+        </div>
+        <div class="xv-comments">
+          <article class="xv-comment">
+            <div class="xv-comment-top">
+              <span class="xv-comment-av" style="background:#ffd36e;">陈</span>
+              <span class="xv-comment-name">陈默</span>
+              <span class="xv-comment-date">11 月 20 日</span>
+            </div>
+            <div class="xv-stars">★★★★★</div>
+            <p>第一次认真看完一部星空纪录片，全程没有快进。讲解坐标和天气窗口那段特别实用，第二天就去试拍了。</p>
+          </article>
+          <article class="xv-comment">
+            <div class="xv-comment-top">
+              <span class="xv-comment-av" style="background:#5fe0d0;">小</span>
+              <span class="xv-comment-name">小满不吃糖</span>
+              <span class="xv-comment-date">11 月 18 日</span>
+            </div>
+            <div class="xv-stars">★★★★★</div>
+            <p>手作那期太友好了，不堆设备，讲的是思路。我照着做了一版，虽然丑但真的能用，成就感满满。</p>
+          </article>
+          <article class="xv-comment">
+            <div class="xv-comment-top">
+              <span class="xv-comment-av" style="background:#8a7bff;">周</span>
+              <span class="xv-comment-name">周行舟</span>
+              <span class="xv-comment-date">11 月 16 日</span>
+            </div>
+            <div class="xv-stars">★★★★☆</div>
+            <p>内容丰富，节奏偏慢，适合安静的时候看。如果能给出更多设备参数的下载文件就更好了。</p>
+          </article>
+          <article class="xv-comment">
+            <div class="xv-comment-top">
+              <span class="xv-comment-av" style="background:#7be0a0;">一</span>
+              <span class="xv-comment-name">一只夜行动物</span>
+              <span class="xv-comment-date">11 月 14 日</span>
+            </div>
+            <div class="xv-stars">★★★★★</div>
+            <p>订阅了三年，从完全不会到能独立出片。官网的收藏功能很好用，教程都能按自己的进度整理。</p>
+          </article>
+          <article class="xv-comment">
+            <div class="xv-comment-top">
+              <span class="xv-comment-av" style="background:#f0a8c4;">南</span>
+              <span class="xv-comment-name">南风知我意</span>
+              <span class="xv-comment-date">11 月 12 日</span>
+            </div>
+            <div class="xv-stars">★★★★☆</div>
+            <p>城市星空那期看得有点难过，我家楼顶确实一颗星都看不到了。希望这类议题能被更多人看到。</p>
+          </article>
+          <article class="xv-comment">
+            <div class="xv-comment-top">
+              <span class="xv-comment-av" style="background:#cfd3e6;color:#13183a;">摄</span>
+              <span class="xv-comment-name">摄影老李</span>
+              <span class="xv-comment-date">11 月 9 日</span>
+            </div>
+            <div class="xv-stars">★★★★★</div>
+            <p>做器材评测很多年，很少见到这么克制的内容。不吹参数，讲适用场景，这点很难得，值得信赖。</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S7 辅助区：企业动态 + 合作 + 投稿 -->
+  <section class="xv-sec" id="xv-news">
+    <div class="xv-wrap">
+      <div class="xv-sec-head">
+        <span class="xv-eyebrow">Update · 企业动态</span>
+        <h2 class="xv-h2"><em>星空视频传媒</em>官方发布与企业动态</h2>
+        <p class="xv-sub">品牌更新、征集报名与内容生态建设进度，均在此处公开记录。</p>
+      </div>
+      <div class="xv-grid xv-grid-2" style="align-items:start;">
+        <div class="xv-card" style="padding:22px;">
+          <h3 class="xv-h3" style="margin-bottom:14px;">最新动态</h3>
+          <ul class="xv-news">
+            <li>
+              <time datetime="2026-11-21">2026-11-21 · 官方发布</time>
+              <h4 style="font-size:14.5px;margin-top:4px;">《星空之下 · 北方》第三集上线</h4>
+              <p>本集聚焦山区观测站的冬季值守，完整版成片与拍摄手记已在官网同步发布，支持高清播放与下载收藏。</p>
+            </li>
+            <li>
+              <time datetime="2026-11-17">2026-11-17 · 征集报名</time>
+              <h4 style="font-size:14.5px;margin-top:4px;">冬季星空延时摄影征集开启</h4>
+              <p>面向所有创作者开放报名，投稿期为四周，入选作品将进入年度合辑并获得平台推荐位与制作支持。</p>
+            </li>
+            <li>
+              <time datetime="2026-11-10">2026-11-10 · 内容生态</time>
+              <h4 style="font-size:14.5px;margin-top:4px;">创作者成长计划第三期启动</h4>
+              <p>新增选题辅导与后期陪跑环节，本批次开放 60 个名额，报名入口位于官网投稿通道。</p>
+            </li>
+            <li>
+              <time datetime="2026-11-02">2026-11-02 · 品牌动态</time>
+              <h4 style="font-size:14.5px;margin-top:4px;">暗夜影像资料库完成首轮整理</h4>
+              <p>已归档超过两千条实拍素材与观测记录，后续将向合作方与教育机构逐步开放查询。</p>
+            </li>
+          </ul>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:22px;">
+          <div class="xv-card" style="padding:22px;">
+            <h3 class="xv-h3" style="margin-bottom:14px;">合作品牌与伙伴</h3>
+            <div class="xv-partners">
+              <div class="xv-partner">星野光学<small>器材支持</small></div>
+              <div class="xv-partner">北岭文旅<small>在地合作</small></div>
+              <div class="xv-partner">拾光书店<small>线下放映</small></div>
+              <div class="xv-partner">云台营地<small>拍摄基地</small></div>
+            </div>
+          </div>
+          <div class="xv-card" style="padding:22px;">
+            <h3 class="xv-h3" style="margin-bottom:10px;">内容使用说明</h3>
+            <p style="font-size:13.5px;color:var(--xv-muted);">官网所有视频均为原创正版内容，个人学习与分享可自由引用并标注来源；商业使用、二次剪辑与公开放映请通过投稿入口联系我们，我们会提供完整的授权说明与高清素材包。</p>
+            <div class="xv-actions">
+              <button class="xv-act" type="button" data-open="contact">联系合作</button>
+              <button class="xv-act" type="button" data-share="星空视频传媒官方网站">分享官网</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="xv-submit" style="margin-top:36px;">
+        <div>
+          <h3 class="xv-h3">投稿与创作支持</h3>
+          <p>无论你手里是一段三分钟的试拍，还是一场准备了半年的长线纪录，星空视频传媒都欢迎你把它提交上来。通过初审的作品将获得选题建议、剪辑反馈与平台推荐，入选重点企划的项目还会得到制作资源支持。我们相信，好的内容生态需要持续运营，也需要每一位创作者真实的参与。</p>
+        </div>
+        <div class="xv-submit-side">
+          <button class="xv-btn xv-btn-solid" type="button" data-open="submit">立即投稿</button>
+          <button class="xv-btn" type="button" data-open="contact">咨询合作</button>
+          <button class="xv-btn xv-btn-ghost" type="button" data-share="星空视频传媒投稿入口">分享给朋友</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="xv-sec" id="xv-faq" style="background:rgba(8,11,28,.55);border-top:1px solid var(--xv-line);">
+    <div class="xv-wrap">
+      <div class="xv-sec-head">
+        <span class="xv-eyebrow">Help · 常见问题</span>
+        <h2 class="xv-h2">关于<em>星空视频传媒</em>官网的常见问题</h2>
+        <p class="xv-sub">以下为观众与创作者最常提出的问题，若未覆盖你的疑问，可通过投稿入口或联系合作与我们沟通。</p>
+      </div>
+      <div class="xv-faq">
+        <details>
+          <summary>官网的内容可以免费观看吗？</summary>
+          <p>可以。星空视频传媒官网的大部分原创内容对所有人免费开放，支持高清播放；部分深度企划提供配套的素材包与课程资料，需要登录后免费领取或按说明申请。</p>
+        </details>
+        <details>
+          <summary>我没有专业设备，能投稿吗？</summary>
+          <p>可以。投稿更看重选题与完成度，不强制要求器材级别。建议提交三分钟以内的完整片段，并附一段简要说明拍摄条件与想表达的内容，初审会给出具体建议。</p>
+        </details>
+        <details>
+          <summary>投稿后多久会收到结果？</summary>
+          <p>通常在十个工作日内完成初审，重点企划的复审会在一周内追加通知。结果会通过你提交时留存的联系方式反馈，未通过的作品也欢迎修改后再次提交。</p>
+        </details>
+        <details>
+          <summary>视频素材可以用于商业项目吗？</summary>
+          <p>不可以直接使用。官网素材仅授权个人学习与分享，商业使用需单独申请授权，我们会根据使用场景提供授权说明与高清文件，并明确署名方式。</p>
+        </details>
+        <details>
+          <summary>专题内容多久更新一次？</summary>
+          <p>不同专题节奏不同：《暗夜守望》为双周一集，《第一台星野相机》为每周一课，《城市星空观察计划》按阶段发布阶段性成果，更新信息统一在企业动态中公布。</p>
+        </details>
+        <details>
+          <summary>如何加入创作者成长计划？</summary>
+          <p>先通过投稿入口提交作品，初审通过后可申请加入。计划包含选题辅导、后期陪跑与流量扶持，每批次名额有限，报名要求与时间以当期公告为准。</p>
+        </details>
+        <details>
+          <summary>我是品牌方，如何发起合作？</summary>
+          <p>可通过官网的联系合作入口说明合作背景、目标与时间安排，我们会在三个工作日内回复，并提供过往案例与制作流程说明，方便你评估匹配度。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="xv-footer" id="xv-footer">
+  <div class="xv-wrap">
+    <div class="xv-footer-grid">
+      <div>
+        <div class="xv-logo" style="margin-bottom:10px;">
+          <svg class="xv-logo-mark" viewBox="0 0 64 64" role="img" aria-label="星空视频传媒页脚标识">
+            <rect width="64" height="64" rx="15" fill="#161e42"/>
+            <path d="M32 11l5.4 13.9L52 26.6l-11.4 9.3L44 50.4 32 42.7 20 50.4l3.4-14.5L12 26.6l14.6-1.7z" fill="#ffd36e"/>
+          </svg>
+          <span class="xv-logo-txt">
+            <span class="xv-logo-zh">星空视频传媒</span>
+            <span class="xv-logo-en">STARRY VIDEO MEDIA</span>
+          </span>
+        </div>
+        <p class="xv-foot-about">星空视频传媒官方网站，专注星空与人文记录的原创视频品牌，持续运营高品质内容生态，为创作者与企业提供可信赖的影像服务。</p>
+      </div>
+      <div>
+        <h4>内容</h4>
+        <ul>
+          <li><a href="#xv-focus">焦点内容</a></li>
+          <li><a href="#xv-flow">精品视频</a></li>
+          <li><a href="#xv-topics">专题企划</a></li>
+          <li><a href="#xv-essay">品牌解析</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>社区</h4>
+        <ul>
+          <li><a href="#xv-authors">创作者矩阵</a></li>
+          <li><a href="#xv-rank">榜单与口碑</a></li>
+          <li><a href="#xv-news">企业动态</a></li>
+          <li><a href="#xv-faq">常见问题</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>关于</h4>
+        <ul>
+          <li><a href="#" data-open="contact">联系合作</a></li>
+          <li><a href="#" data-open="submit">投稿报名</a></li>
+          <li><a href="#" data-open="contact">内容授权</a></li>
+          <li><a href="#xv-hero">回到首页</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="xv-copy">
+      <span>© 2026 星空视频传媒官方网站 · 保留所有权利 · 持续运营中</span>
+      <span>原创内容 · 正版授权 · 高清制作 · 社区共建</span>
+    </div>
+  </div>
+</footer>
+
+<button class="xv-top" id="xv-top" type="button" aria-label="回到顶部">↑</button>
+<div class="xv-toast" id="xv-toast" role="status" aria-live="polite"></div>
+
+<div class="xv-modal" id="xv-modal" role="dialog" aria-modal="true" aria-labelledby="xv-modal-title">
+  <div class="xv-modal-box">
+    <h3 id="xv-modal-title">提示</h3>
+    <div id="xv-modal-body"></div>
+    <div class="xv-modal-actions" id="xv-modal-actions"></div>
+    <button class="xv-modal-close" id="xv-modal-close" type="button">关闭</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- 工具 ---------- */
+  var toastEl = document.getElementById('xv-toast');
+  var toastTimer = null;
+  function toast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add('is-on');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove('is-on'); }, 2200);
+  }
+
+  /* ---------- 移动端导航折叠 ---------- */
+  var burger = document.getElementById('xv-burger');
+  var nav = document.getElementById('xv-nav');
+  burger.addEventListener('click', function(){
+    var open = nav.classList.toggle('is-open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){
+      nav.classList.remove('is-open');
+      burger.setAttribute('aria-expanded','false');
+    }
+  });
+
+  /* ---------- 搜索反馈 ---------- */
+  var searchInput = document.getElementById('xv-search-input');
+  var searchBtn = document.getElementById('xv-search-btn');
+  var searchFeedback = document.getElementById('xv-search-feedback');
+  var suggestions = ['银河','城市星空','暗夜保护','手作相机','降噪','创作者','专题','投稿'];
+  function doSearch(){
+    var kw = searchInput.value.trim();
+    if(!kw){
+      searchFeedback.textContent = '试试这些：' + suggestions.join(' / ');
+      searchFeedback.classList.add('is-on');
+      return;
+    }
+    var hit = suggestions.filter(function(s){ return s.indexOf(kw) > -1 || kw.indexOf(s) > -1; });
+    if(hit.length){
+      searchFeedback.textContent = '在星空视频传媒官网找到与「' + kw + '」相关的内容方向：' + hit.join('、') + '，已为你定位到精品内容区。';
+      document.getElementById('xv-flow').scrollIntoView({behavior:'smooth', block:'start'});
+    } else {
+      searchFeedback.textContent = '暂未匹配到「' + kw + '」，可尝试「银河」「城市星空」「暗夜保护」等关键词，或前往投稿入口提交你希望看到的内容。';
+    }
+    searchFeedback.classList.add('is-on');
+  }
+  searchBtn.addEventListener('click', doSearch);
+  searchInput.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){ e.preventDefault(); doSearch(); }
+  });
+  searchInput.addEventListener('input', function(){
+    if(!searchInput.value){ searchFeedback.classList.remove('is-on'); }
+  });
+
+  /* ---------- 点赞 / 收藏 ---------- */
+  document.querySelectorAll('[data-like]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var numEl = btn.querySelector('.xv-act-num');
+      var ico = btn.querySelector('.xv-act-ico');
+      var liked = btn.classList.toggle('is-liked');
+      var n = parseInt(numEl.textContent.replace(/[^0-9]/g,''),10) || 0;
+      n = liked ? n + 1 : n - 1;
+      numEl.textContent = n;
+      ico.textContent = liked ? '♥' : '♡';
+      toast(liked ? '已点赞，感谢支持原创内容' : '已取消点赞');
+    });
+  });
+  document.querySelectorAll('[data-save]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var saved = btn.classList.toggle('is-saved');
+      var ico = btn.querySelector('.xv-act-ico');
+      ico.textContent = saved ? '★' : '☆';
+      btn.querySelector('span:last-child').textContent = saved ? '已收藏' : '收藏';
+      toast(saved ? '已加入收藏，可在个人中心查看' : '已取消收藏');
+    });
+  });
+
+  /* ---------- 弹窗 + 分享 ---------- */
+  var modal = document.getElementById('xv-modal');
+  var modalTitle = document.getElementById('xv-modal-title');
+  var modalBody = document.getElementById('xv-modal-body');
+  var modalActions = document.getElementById('xv-modal-actions');
+  var lastFocus = null;
+
+  function openModal(title, html, actionsHtml){
+    lastFocus = document.activeElement;
+    modalTitle.textContent = title;
+    modalBody.innerHTML = html || '';
+    modalActions.innerHTML = actionsHtml || '';
+    modal.classList.add('is-on');
+    document.getElementById('xv-modal-close').focus();
+  }
+  function closeModal(){
+    modal.classList.remove('is-on');
+    if(lastFocus && lastFocus.focus){ lastFocus.focus(); }
+  }
+  document.getElementById('xv-modal-close').addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e){ if(e.target === modal){ closeModal(); } });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && modal.classList.contains('is-on')){ closeModal(); } });
+
+  function copyLink(){
+    var ok = false;
+    try{
+      var ta = document.createElement('textarea');
+      ta.value = document.title + ' | ' + '星空视频传媒官方网站';
+      ta.setAttribute('readonly','');
+      ta.style.position = 'fixed';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      ok = document.execCommand('copy');
+      document.body.removeChild(ta);
+    }catch(err){ ok = false; }
+    toast(ok ? '链接已复制，可分享给朋友' : '当前环境不支持自动复制，请手动分享');
+  }
+
+  document.querySelectorAll('[data-share]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var name = btn.getAttribute('data-share') || '星空视频传媒';
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(document.title + ' | ' + '星空视频传媒官方网站').then(function(){
+          toast('链接已复制，可分享给朋友');
+        }).catch(copyLink);
+      } else {
+        copyLink();
+      }
+      openModal('分享「' + name + '」',
+        '<p>选择你常用的渠道把内容分享出去，也可以直接复制页面说明文字。原创内容欢迎传播，请保留来源标注。</p>',
+        '<button class="xv-share-item" type="button" data-channel="微信">微信</button>' +
+        '<button class="xv-share-item" type="button" data-channel="微博">微博</button>' +
+        '<button class="xv-share-item" type="button" data-channel="QQ">QQ</button>' +
+        '<button class="xv-share-item" type="button" data-channel="链接">复制链接</button>');
+    });
+  });
+
+  /* ---------- 作者弹窗 ---------- */
+  var authorData = {
+    '叶知星':['天文摄影 · 深度学习','天体摄影方向的资深创作者，积累超过八百小时的野外拍摄经验。作品重视画面中的地理信息，常同步标注拍摄坐标与时间窗口。','86 部作品 · 12.4 万粉丝'],
+    '阿岚':['手作 · 器材改造','擅长用极低成本完成可用的拍摄辅助设备，视频不依赖高端器材，把每个改动的原因讲清楚，定期开源图纸供观众复刻。','64 部作品 · 9.1 万粉丝'],
+    '林序':['人物访谈 · 声音记录','纪录片导演出身，采用长时间、低干扰的访谈方式，在安静对话中呈现人物真实状态，负责观测员访谈系列。','41 部作品 · 7.6 万粉丝'],
+    '苏晚照':['城市探索 · 在地文化','长期关注城市与自然交界地带，习惯保留环境声与现场对话，城市系列在社区中拥有很高收藏率。','53 部作品 · 6.8 万粉丝'],
+    '程野':['户外记录 · 拍摄安全','户外向导与摄影师双重身份，侧重高海拔与低温拍摄的安全准备，每条视频附装备清单与风险评估。','72 部作品 · 10.2 万粉丝'],
+    '星空影像组':['官方出品 · 深度纪录','平台官方制作团队，由导演、摄影、后期与制片组成，具备完整高清流程作业能力，代表作《星空之下 · 北方》系列。','118 部作品 · 21.5 万粉丝']
+  };
+  document.querySelectorAll('[data-author]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var name = btn.getAttribute('data-author');
+      var info = authorData[name] || ['星空影像创作者','星空视频传媒入驻创作者，持续产出原创正版内容。','—'];
+      openModal(name + ' · 创作者档案',
+        '<p style="color:var(--xv-cyan);margin-bottom:8px;">擅长领域：' + info[0] + '</p>' +
+        '<p>' + info[1] + '</p>' +
+        '<ul><li>' + info[2] + '</li><li>更新节奏：每两周一更</li><li>内容类型：原创纪录 / 教程 / 访谈</li></ul>');
+    });
+  });
+
+  /* ---------- 投稿 / 联系 弹窗 ---------- */
+  document.body.addEventListener('click', function(e){
+    var trigger = e.target.closest('[data-open]');
+    if(!trigger) return;
+    e.preventDefault();
+    var type = trigger.getAttribute('data-open');
+    if(type === 'submit'){
+      openModal('投稿与报名',
+        '<p>请准备以下信息，通过官网投稿通道提交，我们会在十个工作日内给出初审反馈。</p>' +
+        '<ul><li>作品标题与三分钟内的样片或完整链接</li><li>拍摄条件说明与使用的设备型号</li><li>想表达的核心内容与预计时长</li><li>联系方式与可接受的更新节奏</li></ul>' +
+        '<p style="margin-top:12px;">入选作品将获得选题建议、剪辑反馈与平台推荐，重点企划另有制作资源支持。</p>',
+        '<button class="xv-share-item" type="button" data-channel="投稿">发送投稿说明</button>');
+    } else if(type === 'contact'){
+      openModal('联系与合作',
+        '<p>星空视频传媒官网欢迎品牌、机构与创作者沟通合作，以下方向均开放：</p>' +
+        '<ul><li>品牌定制影像与专题联名</li><li>内容授权、公开放映与教育使用</li><li>线下放映、工作坊与创作者活动</li><li>暗夜保护与城市观察类公益合作</li></ul>' +
+        '<p style="margin-top:12px;">请附上项目背景、目标与时间安排，我们会在三个工作日内回复并给出流程说明。</p>',
+        '<button class="xv-share-item" type="button" data-channel="合作">发送合作意向</button>');
+    }
+  });
+
+  /* ---------- 分享渠道提示 ---------- */
+  document.getElementById('xv-modal-actions').addEventListener('click', function(e){
+    var b = e.target.closest('[data-channel]');
+    if(!b) return;
+    var ch = b.getAttribute('data-channel');
+    if(ch === '链接' || ch === '投稿' || ch === '合作'){
+      toast(ch === '链接' ? '链接已复制，可分享给朋友' : '已生成' + ch + '说明，请按提示继续');
+      closeModal();
+    } else {
+      toast('请打开' + ch + '，粘贴已复制的链接完成分享');
+    }
+  });
+
+  /* ---------- 回到顶部 ---------- */
+  var topBtn = document.getElementById('xv-top');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > 560){ topBtn.classList.add('is-on'); }
+    else{ topBtn.classList.remove('is-on'); }
+  }, {passive:true});
+  topBtn.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  /* ---------- 公告滚动（多条更新轮播） ---------- */
+  var announceText = document.getElementById('xv-announce-text');
+  var announceList = [
+    '《星空之下·北方》第三集已上线｜冬季星空延时摄影征集开启报名',
+    '创作者成长计划第三期开放 60 个名额｜官网投稿通道同步更新',
+    '暗夜影像资料库首轮整理完成｜已归档两千余条实拍素材'
+  ];
+  var ai = 0;
+  setInterval(function(){
+    ai = (ai + 1) % announceList.length;
+    announceText.style.opacity = '0';
+    setTimeout(function(){
+      announceText.textContent = announceList[ai];
+      announceText.style.opacity = '1';
+    }, 260);
+  }, 6500);
+  announceText.style.transition = 'opacity .26s ease';
+
+  /* ---------- 首屏数字滚动 ---------- */
+  var stats = document.querySelectorAll('.xv-stat-num');
+  var statDone = false;
+  function animateStats(){
+    if(statDone) return;
+    statDone = true;
+    stats.forEach(function(el){
+      var raw = el.textContent.trim();
+      var target = parseInt(el.getAttribute('data-count'), 10);
+      if(isNaN(target)) return;
+      var suffix = raw.indexOf('%') > -1 ? '.4%' : '+';
+      if(raw.indexOf('%') > -1){ suffix = '%'; }
+      var start = 0;
+      var dur = 1100;
+      var t0 = performance.now();
+      function step(t){
+        var p = Math.min(1, (t - t0) / dur);
+        var v = Math.round(start + (target - start) * (1 - Math.pow(1 - p, 3)));
+        el.textContent = (raw.indexOf('%') > -1 ? (v / 10).toFixed(1) : v) + suffix;
+        if(p < 1){ requestAnimationFrame(step); }
+        else{ el.textContent = raw; }
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ animateStats(); io.disconnect(); } });
+    }, {threshold:.4});
+    io.observe(document.getElementById('xv-hero'));
+  }
+})();
+</script>
+</body>
+  </html>
